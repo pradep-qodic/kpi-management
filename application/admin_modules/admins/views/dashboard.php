@@ -1,4 +1,4 @@
-<link rel="stylesheet" type="text/css" href="<?php echo admin_base_url();?>themes/admin/css/dashboardpage.css">
+<link rel="stylesheet" type="text/css" href="">
 <style>
 .modal-dialog {
   max-width: 100%;
@@ -109,7 +109,4 @@
     </div>
 </div>
 <!-- end modal -->
-<script src="<?php echo admin_base_url();?>themes/admin/assets/demo/default/custom/components/forms/widgets/bootstrap-select.js"></script>
-<script src="https://code.highcharts.com/highcharts.js"></script>
-<script src="https://code.highcharts.com/modules/exporting.js"></script>
-<script src="<?php echo admin_base_url() ?>./themes/admin/js/mainpage.js" type="text/javascript"></script>
+

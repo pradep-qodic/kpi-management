@@ -1,8 +1,6 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="<?php echo admin_base_url();?>themes/admin/css/styleUpload.css" type="text/css" />
+<link rel="stylesheet" href="" type="text/css" />
 
-<script src="<?php echo admin_base_url();?>themes/admin/js/jquery-2.1.1.js"></script>
-<script src="<?php echo admin_base_url();?>themes/admin/js/jquery.cropit.min.js"></script>
 <style>
     body { padding-top:0!important; }
     .cropit-image-preview {
@@ -173,8 +171,8 @@
 	
 </div>
 </div>
-<link href="<?php echo admin_base_url('themes/admin/css/bootstrap.min.css');?>" rel="stylesheet">
-<script src="<?php echo admin_base_url();?>/themes/admin/js/bootstrap.min.js"></script>
+<link href="" rel="stylesheet">
+<script src=""></script>
 
 <script type="text/javascript">
   $(function() {

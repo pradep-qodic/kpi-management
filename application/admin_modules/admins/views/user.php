@@ -24,13 +24,13 @@
 				<h3 class="m-subheader__title m-subheader__title--separator">Users</h3>
 				<ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
 					<li class="m-nav__item m-nav__item--home">
-						<a href="<?php echo base_url('admins/dashboard');?>" class="m-nav__link m-nav__link--icon">
+						<a href="" class="m-nav__link m-nav__link--icon">
 							<i class="m-nav__link-icon la la-home"></i>
 						</a>
 					</li>
 					<li class="m-nav__separator">-</li>
 					<li class="m-nav__item">
-						<a href="<?php echo base_url('admins/user');?>" class="m-nav__link">
+						<a href="" class="m-nav__link">
 							<span class="m-nav__link-text">user</span>
 						</a>
 					</li>
@@ -228,6 +228,4 @@
 	</div>
 </div>
 <!--.modal-->
-<script src="<?php echo admin_base_url();?>themes/admin/assets/demo/default/custom/components/forms/widgets/bootstrap-select.js"></script>
-<script src="<?php echo admin_base_url();?>themes/admin/js/usermanage.js"></script>
-<script src="<?php echo admin_base_url();?>themes/admin/js/bootbox.min.js"></script>																									
+																							

@@ -1,5 +1,4 @@
-<link rel="stylesheet" type="text/css" href="<?php echo admin_base_url();?>themes/admin/css/croppie.css">
-<script src="<?php echo admin_base_url();?>themes/admin/js/croppie.js"></script>
+<link rel="stylesheet" type="text/css" href="">
 <style>	
 	.title_fon
 	{
@@ -171,4 +170,3 @@
 		</div>
 	</div>  
 </div>  
-<script src="<?php echo admin_base_url();?>themes/admin/js/profile_manage.js"></script>

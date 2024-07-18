@@ -6,7 +6,7 @@
 		<div class="navbar-inner">
 			<div class="container">
 				<div class="navbar-header">
-					<a class="navbar-brand" href="<?php echo base_url($this->schedular_auth->makeBaseURL("dashboard")); ?>">
+					<a class="navbar-brand" href="">
 					   <?php if(isset($organizationLogoURL) && $organizationLogoURL): ?><img alt="Brand" style="max-width:30px;" title="Scheduler Admin Panel" src="<?php echo $organizationLogoURL; ?>"><?php else:?><span class="fa fa-bank"></span><?php endif;?> Scheduler
 					</a>
 				</div>

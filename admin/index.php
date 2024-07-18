@@ -131,11 +131,11 @@ $assign_to_config['layout_path'] = 'admin/';
 //custom config overwritten the original one;
 $is_live=true;
 if($is_live){
-    $assign_to_config['base_url']	= 'http://dash.datatechsols.com/admin';
-    $assign_to_config['base_url1']	= 'http://dash.datatechsols.com/';
+    $assign_to_config['base_url']	= '';
+    $assign_to_config['base_url1']	= '';
 }else{
-    $assign_to_config['base_url']	= 'http://127.0.0.1:8080/dashboardSystem/admin';
-    $assign_to_config['base_url1']	= 'http://127.0.0.1:8080/dashboardSystem/';
+    $assign_to_config['base_url']	= '';
+    $assign_to_config['base_url1']	= '';
 }
 
 $assign_to_config['index_page'] = '';

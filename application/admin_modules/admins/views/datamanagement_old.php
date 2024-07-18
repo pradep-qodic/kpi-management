@@ -1,5 +1,3 @@
-<script src="<?php echo admin_base_url();?>themes/admin/assets/demo/default/custom/components/forms/widgets/bootstrap-select.js"></script>
-<script src="<?php echo admin_base_url();?>themes/admin/assets/demo/default/custom/components/forms/widgets/bootstrap-datepicker.js"></script>
 <style>
 .tagclass{
 	width: auto;
@@ -139,5 +137,3 @@
   </div>
 </div>
 <!--.modal-->
-<script src="<?php echo admin_base_url();?>themes/admin/js/datamanagement.js"></script>
-<script src="<?php echo admin_base_url();?>themes/admin/js/bootbox.min.js"></script>

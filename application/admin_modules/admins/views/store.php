@@ -170,5 +170,3 @@
   </div>
 </div>
 <!--.modal-->
-<script src="<?php echo admin_base_url();?>themes/admin/js/store.js"></script>
-<script src="<?php echo admin_base_url();?>themes/admin/js/bootbox.min.js"></script>

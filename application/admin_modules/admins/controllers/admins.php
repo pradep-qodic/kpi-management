@@ -13,11 +13,17 @@ class Admins extends MY_Controller
         $this->load->library(['admin_vts_auth', 'form_validation', 'session']);
     }
 
+    /**
+     * Display the sign-in page.
+     */
     public function index()
     {
         $this->loadView('Signin', 'admins/signin');
     }
 
+    /**
+     * Handle sign-in requests.
+     */
     public function signin()
     {
         if ($this->input->is_ajax_request()) {
@@ -27,6 +33,9 @@ class Admins extends MY_Controller
         }
     }
 
+    /**
+     * Process the sign-in form submission.
+     */
     private function processSignIn()
     {
         $config = [
@@ -42,6 +51,9 @@ class Admins extends MY_Controller
         }
     }
 
+    /**
+     * Attempt to log in the user with the provided email and password.
+     */
     private function attemptLogin()
     {
         $admin_email = $this->input->post('email', true);
@@ -50,6 +62,9 @@ class Admins extends MY_Controller
         $this->load->view('json_view', $res);
     }
 
+    /**
+     * @param string $errors The validation errors.
+     */
     private function sendErrorResponse($errors)
     {
         $this->form_validation->set_error_delimiters(' ', ' ');
@@ -57,6 +72,9 @@ class Admins extends MY_Controller
         $this->load->view('json_view', $data);
     }
 
+    /**
+     * Display the admin dashboard.
+     */
     public function dashboard()
     {
         $this->admin_vts_auth->_member_area_redirect();
@@ -64,6 +82,9 @@ class Admins extends MY_Controller
         $this->loadView('Home', 'admins/dashboard', $data);
     }
 
+    /**
+     * Display the data management page.
+     */
     public function datamanagement()
     {
         $this->admin_vts_auth->_member_area_redirect();
@@ -72,6 +93,10 @@ class Admins extends MY_Controller
         $this->loadView('Data Management', 'admins/datamanagement', $data);
     }
 
+    /**
+     * Display the KPI management page for super admins.
+     * Redirect to the 404 page if the user is not a super admin.
+     */
     public function kpi()
     {
         if ($this->isSuperAdmin()) {
@@ -83,6 +108,9 @@ class Admins extends MY_Controller
         }
     }
 
+    /**
+     * Generate and return chart data based on the provided parameters.
+     */
     public function getChartsPage()
     {
         if ($this->input->is_ajax_request()) {
@@ -95,6 +123,11 @@ class Admins extends MY_Controller
         }
     }
 
+    /**
+     * Retrieve chart parameters from the POST request.
+     * 
+     * @return array The chart parameters.
+     */
     private function getChartParams()
     {
         return [
@@ -107,6 +140,12 @@ class Admins extends MY_Controller
         ];
     }
 
+    /**
+     * Calculate the month-year combinations based on the provided parameters.
+     * 
+     * @param array $params The chart parameters.
+     * @return array The month-year combinations.
+     */
     private function getMonthYear($params)
     {
         $monthYear = [];
@@ -136,6 +175,13 @@ class Admins extends MY_Controller
         return array_unique($monthYear);
     }
 
+    /**
+     * Calculate the months for the specified financial year range.
+     * 
+     * @param array $years The years.
+     * @param string $month The month.
+     * @return array The months in the financial year range.
+     */
     private function getFinancialYearMonths($years, $month)
     {
         $months = [];
@@ -168,6 +214,14 @@ class Admins extends MY_Controller
         return array_unique($monthYear);
     }
 
+    /**
+     * Get the full financial years for the specified year range.
+     * 
+     * @param array $years The years.
+     * @param string $financialStart The start month of the financial year.
+     * @param string $financialEnd The end month of the financial year.
+     * @return array The full financial years.
+     */
     private function getFullFinancialYears($years, $financialStart, $financialEnd)
     {
         $monthYear = [];
@@ -185,6 +239,13 @@ class Admins extends MY_Controller
         return array_unique($monthYear);
     }
 
+    /**
+     * Calculate the chart months based on the provided parameters.
+     * 
+     * @param array $params The chart parameters.
+     * @param array $monthYear The month-year combinations.
+     * @return array The chart months.
+     */
     private function getChartMonth($params, $monthYear)
     {
         $chartMonth = [];
@@ -201,6 +262,13 @@ class Admins extends MY_Controller
         return $chartMonth;
     }
 
+    /**
+     * Get the specific chart months for the specified year and month.
+     * 
+     * @param array $years The years.
+     * @param string $month The month.
+     * @return array The specific chart months.
+     */
     private function getSpecificChartMonths($years, $month)
     {
         $chartMonth = [];
@@ -220,6 +288,14 @@ class Admins extends MY_Controller
         return $chartMonth;
     }
 
+    /**
+     * Prepare the chart data based on the provided parameters, month-year combinations, and chart months.
+     * 
+     * @param array $params The chart parameters.
+     * @param array $monthYear The month-year combinations.
+     * @param array $chartMonth The chart months.
+     * @return array The prepared chart data.
+     */
     private function prepareChartData($params, $monthYear, $chartMonth)
     {
         $data = [];
@@ -239,6 +315,14 @@ class Admins extends MY_Controller
         return $data;
     }
 
+    /**
+     * Retrieve the chart data for the specified chart name, site ID, and chart months.
+     * 
+     * @param string $chartName The chart name.
+     * @param string $siteId The site ID.
+     * @param array $chartMonth The chart months.
+     * @return array The chart data.
+     */
     private function getChartData($chartName, $siteId, $chartMonth)
     {
         $chartData = [];
@@ -252,6 +336,9 @@ class Admins extends MY_Controller
         return $chartData;
     }
 
+    /**
+     * Log out the user and destroy the session.
+     */
     public function logout()
     {
         $this->session->unset_userdata(['user_id', 'username', 'is_admin']);
@@ -259,6 +346,12 @@ class Admins extends MY_Controller
         redirect('admins');
     }
 
+    /**
+     * Load a view with the specified title and data.
+     * @param string $title The title of the view.
+     * @param string $view The view file.
+     * @param array $data The data to pass to the view.
+     */
     private function loadView($title, $view, $data = [])
     {
         $data['title'] = $title;
@@ -267,6 +360,10 @@ class Admins extends MY_Controller
         $this->load->view('templates/admin_footer');
     }
 
+    /**
+     * Check if the current user is a super admin.
+     * @return bool True if the user is a super admin, false otherwise.
+     */
     private function isSuperAdmin()
     {
         return $this->session->userdata('admin_group') === 'super_admin';
